@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import restaurantfood from "../images/restauranfood.jpg";
 
+// i want to console log what is stored in the local storage on first render
+
 const Hero = () => {
+  useEffect(() => {
+    console.log("LOCAL STORAGE" + localStorage.getItem("date"));
+  }, []);
   return (
     <>
       <div className="hero-text">

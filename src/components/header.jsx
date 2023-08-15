@@ -1,19 +1,28 @@
 import React from "react";
 import Logo from "../images/Logo.svg";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ toggleModal }) => {
   return (
     <header className="header">
       <nav>
-        <a href="/" style={{ marginLeft: 0, paddingLeft: 0 }}>
-          <img src={Logo} />
-        </a>
-        <a href="#Home">Home</a>
-        <a href="#About">About</a>
-        <a href="#Menu">Menu</a>
-        <a href="#Reservation">Reservation</a>
-        <a href="#Order0nline">Order online</a>
-        <a href="#Login">Login</a>
+        <Link style={{ marginLeft: 0, paddingLeft: 0 }} to="/">
+          <img src={Logo} alt="Website Logo" />
+        </Link>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/menu">Menu</Link>
+        <Link to="/reservation">Reservation</Link>
+        <Link to="/orderonline">Order online</Link>
+        <Link
+          to="#"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleModal();
+          }}
+        >
+          Login
+        </Link>
       </nav>
     </header>
   );
